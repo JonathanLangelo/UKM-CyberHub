@@ -118,9 +118,6 @@
             errorState.style.display = 'none';
 
             try {
-                // IMPORTANT: This is where the IDOR vulnerability can be exploited
-                // The userId comes from localStorage and is sent as a query parameter
-                // An attacker can intercept this request and change the id parameter
                 const response = await fetch(`/api/profile?id=${userId}`);
                 const data = await response.json();
 

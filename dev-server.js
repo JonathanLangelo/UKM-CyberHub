@@ -1,10 +1,5 @@
 #!/usr/bin/env node
 
-/**
- * Simple Local Development Server
- * Alternative to Vercel CLI for quick testing
- */
-
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
@@ -12,7 +7,6 @@ const url = require('url');
 
 const PORT = 3000;
 
-// MIME types
 const mimeTypes = {
     '.html': 'text/html',
     '.css': 'text/css',
@@ -20,12 +14,10 @@ const mimeTypes = {
     '.json': 'application/json',
 };
 
-// Import API handlers
 const loginHandler = require('./api/login.js');
 const profileHandler = require('./api/profile.js');
 
 const server = http.createServer(async (req, res) => {
-    // Add Express-like helpers for Vercel compatibility
     res.status = (code) => {
         res.statusCode = code;
         return res;
@@ -42,9 +34,7 @@ const server = http.createServer(async (req, res) => {
 
     console.log(`${req.method} ${pathname}`);
 
-    // API Routes
     if (pathname === '/api/login') {
-        // Parse body for POST requests
         if (req.method === 'POST') {
             let body = '';
             req.on('data', chunk => body += chunk.toString());
@@ -64,7 +54,6 @@ const server = http.createServer(async (req, res) => {
         return;
     }
 
-    // Static file serving
     let filePath = '';
 
     if (pathname === '/') {
@@ -77,7 +66,6 @@ const server = http.createServer(async (req, res) => {
         filePath = path.join(__dirname, 'public', pathname);
     }
 
-    // Check if file exists
     fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
             res.writeHead(404, { 'Content-Type': 'text/plain' });
@@ -85,11 +73,9 @@ const server = http.createServer(async (req, res) => {
             return;
         }
 
-        // Get file extension
         const ext = path.extname(filePath);
         const contentType = mimeTypes[ext] || 'application/octet-stream';
 
-        // Read and serve file
         fs.readFile(filePath, (err, content) => {
             if (err) {
                 res.writeHead(500, { 'Content-Type': 'text/plain' });
