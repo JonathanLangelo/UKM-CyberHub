@@ -1,0 +1,39 @@
+[
+  {
+    "id": 0,
+    "username": "admin",
+    "password": "admin2024",
+    "role": "admin",
+    "fullName": "Administrator",
+    "email": "admin@company.com",
+    "department": "IT Security",
+    "flag": "ICH{G3l0_D4h_b1s4_1D0R}"
+  },
+  {
+    "id": 1,
+    "username": "employee1",
+    "password": "pass123",
+    "role": "employee",
+    "fullName": "John Doe",
+    "email": "john.doe@company.com",
+    "department": "Marketing"
+  },
+  {
+    "id": 2,
+    "username": "employee2",
+    "password": "pass456",
+    "role": "employee",
+    "fullName": "Jane Smith",
+    "email": "jane.smith@company.com",
+    "department": "Sales"
+  },
+  {
+    "id": 3,
+    "username": "employee3",
+    "password": "pass789",
+    "role": "employee",
+    "fullName": "Bob Johnson",
+    "email": "bob.johnson@company.com",
+    "department": "Engineering"
+  }
+]

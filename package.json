@@ -1,0 +1,19 @@
+{
+    "name": "ctf-idor-challenge",
+    "version": "1.0.0",
+    "description": "CTF Challenge - IDOR Vulnerability (Educational Purpose)",
+    "main": "api/login.js",
+    "scripts": {
+        "start": "node dev-server.js",
+        "dev": "vercel dev",
+        "deploy": "vercel --prod"
+    },
+    "keywords": [
+        "ctf",
+        "security",
+        "idor",
+        "education"
+    ],
+    "author": "UKM Cyber Security",
+    "license": "MIT"
+}
